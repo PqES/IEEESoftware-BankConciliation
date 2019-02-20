@@ -1,0 +1,38 @@
+authorization: http://localhost:8083; /home/microservices/authorization/; Java
+	module Controller: org.microservices.plt.authorization.controller.*
+	module Main: org.microservices.plt.authorization.AuthorizationApplication
+	module ServiceInterface: org.microservices.plt.authorization.services.[a-zA-Z]*Service
+	module ServiceImpl: org.microservices.plt.authorization.services.[a-zA-Z]*Impl
+
+	module Apache: org.apache.tomcat.**, org.apache.catalina.**, org.apache.logging.log4j.Logger
+
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.**
+	module Beans: org.springframework.beans.**, org.springframework.boot.context.**, org.springframework.context.**
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController
+	module Jndi: org.springframework.jndi.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+
+	#Constraints
+	#Only-can
+	only Controller, Service can-depend Service
+	only Controller can-useannotation CtlrAnnotations
+	only Service can-depend Jndi
+	only Main can-depend MainAnnotations
+	
+	#Can-only
+	Main can-depend-only API, MainAnnotations, Apache
+
+	#Cannot
+	Controller cannot-access Main
+	$system cannot-depend BCMultitenancy
+	Service cannot-access Controller
+
+	#Must
+	ServiceImpl must-useannotation ServiceAnnotation
+	ServiceImpl must-implement ServiceInterface
+	Controller must-useannotation CtlrAnnotations

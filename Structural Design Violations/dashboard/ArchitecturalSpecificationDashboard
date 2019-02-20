@@ -1,0 +1,40 @@
+dashboard: http://localhost:8095/; /home/microservices/cba-dashboard/; Java
+	module Controller: org.microservices.cba.dashboard.controller.*
+	module DAO: org.microservices.cba.dashboard.dao.**
+	module DAOInterface: 	org.microservices.cba.dashboard.dao.[a-zA-Z]*Dao
+	module Service: org.microservices.cba.dashboard.service.*
+
+	module BCController: 	org.microservices.cba.basecommons.controller.**
+	module BCModel: 	org.microservices.cba.basecommons.models.**
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController
+	module Hibernate: org.hibernate.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties, 
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication, $java
+
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringRepository: org.springframework.stereotype.Repository
+
+  	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Controller can-depend BCController
+	only Main can-depend Multitenancy
+	only Service, DAO can-access DAO
+
+	#Can-only
+	ImplementDAO can-depend-only JPA, Hibernate, $java, SpringRepository, BCModel
+
+  	#Cannot
+	Controller cannot-access DAO
+	Service cannot-depend Controller
+  
+	#Must
+	Main must-useannotation MainAnnotations
+	Controller must-access Service
+	ImplementDAO must-implement DAOInterface
+	ImplementDAO must-depend SpringRepository
+	Service must-useannotation ServiceAnnotation
+

@@ -1,0 +1,78 @@
+node-middle: http://localhost:8099; /home/elena/Documents/CodigosEquals/DepExtractorsExtracted/node-middleware/; Js
+module AccessProfile: node-middleware.src.conciliacaoBancaria.accessProfile.**
+module App: node-middleware.src.conciliacaoBancaria.app
+module Assignment: node-middleware.src.conciliacaoBancaria.assignment.**
+module AttributesSet: node-middleware.src.conciliacaoBancaria.attributesSet.**
+module AuditLog: node-middleware.src.conciliacaoBancaria.auditLog.**
+module BankAccounts: node-middleware.src.conciliacaoBancaria.bankAccounts.**
+module BankStatement: node-middleware.src.conciliacaoBancaria.bankStatement.**
+module Categories: node-middleware.src.conciliacaoBancaria.categories.**
+module Cities: node-middleware.src.conciliacaoBancaria.cities.**
+module Client: node-middleware.src.conciliacaoBancaria.client.**
+module ConcilPlan: node-middleware.src.conciliacaoBancaria.conciliationPlan.**
+module ConcilReport: node-middleware.src.conciliacaoBancaria.conciliationReport.**
+module ConcilSummary: node-middleware.src.conciliacaoBancaria.conciliationSummary.**
+module Config: node-middleware.src.config.**
+module Dashboard: node-middleware.src.conciliacaoBancaria.dashboard.**
+module Establishment: node-middleware.src.conciliacaoBancaria.establishment.**
+module EstablishGroups: node-middleware.src.conciliacaoBancaria.establishmentGroups.**
+module FileUpload: node-middleware.src.conciliacaoBancaria.fileUpload.**
+module FinancMovements: node-middleware.src.conciliacaoBancaria.financialMovements.**
+module Home: node-middleware.src.conciliacaoBancaria.home.**
+module Index: node-middleware.src.conciliacaoBancaria.index
+module ManualConcil: node-middleware.src.conciliacaoBancaria.manualConciliation.**
+module Node_module: node-middleware.node_modules.**
+module OccurrenceReason: node-middleware.src.conciliacaoBancaria.occurrenceReason.**
+module OccurrenceReport: node-middleware.src.conciliacaoBancaria.occurrenceReport.**
+module Operator: node-middleware.src.conciliacaoBancaria.operator.**
+module ProcessedFiles: node-middleware.src.conciliacaoBancaria.processedFiles.**
+module Routes: node-middleware.src.conciliacaoBancaria.routes
+module States: node-middleware.src.conciliacaoBancaria.states.**
+module Task: node-middleware.src.conciliacaoBancaria.task.**
+module TransfData: node-middleware.src.transformationData.**
+module Treegrid: node-middleware.src.conciliacaoBancaria.treegrid.**
+module User: node-middleware.src.conciliacaoBancaria.user.**
+
+#Restricoes only-can
+only App can-access Routes
+
+#Restricoes can-only
+Index can-access-only App, Node_module, Config, TransfData
+App can-access-only Routes, Node_module, Config, TransfData
+Routes can-access-only ConciliacaoBancaria, Node_module, Config, TransfData
+AccessProfile can-access-only AccessProfile, Node_module, Config, TransfData
+Assignment can-access-only Assignment, Node_module, Config, TransfData
+AttributesSet can-access-only AttributesSet, Node_module, Config, TransfData
+AuditLog can-access-only AuditLog, Node_module, Config, TransfData
+BankAccounts can-access-only BankAccounts, Node_module, Config, TransfData
+BankStatement can-access-only BankStatement, Node_module, Config, TransfData
+Categories can-access-only Categories, Node_module, Config, TransfData
+Cities can-access-only Cities, Node_module, Config, TransfData
+Client can-access-only Client, Node_module, Config, TransfData
+ConcilPlan can-access-only ConcilPlan, Node_module, Config, TransfData
+ConcilReport can-access-only ConcilReport, Node_module, Config, TransfData
+ConcilSummary can-access-only ConcilSummary, Node_module, Config, TransfData
+Dashboard can-access-only Dashboard, Node_module, Config, TransfData
+Establishment can-access-only Establishment, Node_module, Config, TransfData
+EstablishGroups can-access-only EstablishGroups, Node_module, Config, TransfData
+FileUpload can-access-only FileUpload, Node_module, Config, TransfData
+FinancMovements can-access-only FinancMovements, Node_module, Config, TransfData
+Home can-access-only Home, Node_module, Config, TransfData
+ManualConcil can-access-only ManualConcil, Node_module, Config, TransfData
+OccurrenceReason can-access-only OccurrenceReason, Node_module, Config, TransfData
+OccurrenceReport can-access-only OccurrenceReport, Node_module, Config, TransfData
+Operator can-access-only Operator, Node_module, Config, TransfData
+ProcessedFiles can-access-only ProcessedFiles, Node_module, Config, TransfData
+States can-access-only States, Node_module, Config, TransfData
+Task can-access-only Task, Node_module, Config, TransfData
+Treegrid can-access-only Treegrid, Node_module, Config, TransfData
+User can-access-only User, Node_module, Config, TransfData
+TransfData can-access-only TransfData, Node_module, Config
+
+#Restricoes must
+Index must-access App
+App must-access Routes
+
+#Restricoes cannot
+App cannot-depend Index
+Routes cannot-depend Index, App

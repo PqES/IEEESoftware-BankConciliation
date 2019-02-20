@@ -1,0 +1,7 @@
+[divergence],[org.microservices.plt.authentication.controller.AuthenticationController,declare,org.microservices.plt.commons.mybatis.domain.DadosAuditoria],[only Service can-depend MyBatis]
+		
+[divergence],[org.microservices.plt.authentication.controller.AuthenticationController,access,org.microservices.plt.commons.mybatis.domain.DadosAuditoria],[only Service can-depend MyBatis]
+		
+[absence],[org.microservices.plt.authentication.service,useannotation,org.springframework.stereotype.Service],[Service msut useannotation ServiceAnnotation]
+	
+[absence],[org.microservices.plt.authentication.service,useannotation,org.springframework.stereotype.Service],[Service msut useannotation ServiceAnnotation]

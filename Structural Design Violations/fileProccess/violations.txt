@@ -1,0 +1,62 @@
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.Message],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,create,com.amazonaws.services.sqs.model.SendMessageRequest],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.ReceiveMessageResult],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.AmazonSQS],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.AmazonSQS],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.SendMessageRequest],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.GetQueueUrlResult],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.model.SendMessageRequest],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.model.Message],[only Service, Scheduling can-depend AmazonService]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.Message],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,java.lang.String],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,throw,java.lang.Exception],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,equals.gestaofinanceira.microservices.cba.basecommons.domain.InputWorflow],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,create,com.amazonaws.services.sqs.model.SendMessageRequest],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,java.util.List],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.model.ReceiveMessageResult],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.AmazonSQS],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,useannotation,org.springframework.stereotype.Component],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,com.amazonaws.services.sqs.AmazonSQS],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.model.SendMessageRequest],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,access,equals.gestaofinanceira.microservices.cba.basecommons.domain.InputWorflow],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.util.DadosFilaAwsUtil,declare,com.amazonaws.services.sqs.model.Message],[Util can-depend-only Util, BaseCommonsUtil, API, Logger]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.MovimentosBancariosSchedule,useannotation,javax.persistence.PersistenceContext],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.MovimentosBancariosSchedule,declare,javax.persistence.EntityManager],[only DAO, Model can-depend Transactional, JPA]
+
+[absence],[equals.gestaofinanceira.microservices.cba.process.model.ProcessamentoFluxo,implement,Serializable],[Model must-implement Serializable]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.service.TabelasDefinitivasService,useannotation,javax.persistence.PersistenceContext],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.service.TabelasDefinitivasService,declare,javax.persistence.EntityManager],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.ConciliacoesAutomaticasSchedule,declare,javax.persistence.EntityManager],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.ConciliacoesAutomaticasSchedule,useannotation,javax.persistence.PersistenceContext],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.TabelasDefinitivasSchedule,useannotation,javax.persistence.PersistenceContext],[only DAO, Model can-depend Transactional, JPA]
+
+[divergence],[equals.gestaofinanceira.microservices.cba.process.schedule.TabelasDefinitivasSchedule,declare,javax.persistence.EntityManager],[only DAO, Model can-depend Transactional, JPA]
+

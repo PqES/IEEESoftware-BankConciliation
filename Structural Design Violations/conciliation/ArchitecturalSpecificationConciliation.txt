@@ -1,0 +1,51 @@
+conciliation: http://localhost:8093; /home/microservices/cba-conciliation/; Java
+	module Controller: org.microservices.cba.conciliation.controller.*
+	module DAO: org.microservices.cba.conciliation.dao.*
+	module Domain: org.microservices.cba.conciliation.domain.*
+	module ImplementDAO: org.microservices.cba.conciliation.dao.[a-zA-Z]*DaoImpl
+	module Util: org.microservices.cba.conciliation.util.*
+	module Main: org.microservices.cba.conciliation.ConciliationApplication
+	module Service: org.microservices.cba.conciliation.service.**
+	module Scheduled: org.microservices.cba.conciliation.scheduled.**
+
+	module AmazonSQS: com.amazonaws.services.sqs.AmazonSQS	
+	module BCDAO: org.microservices.cba.basecommons.daos.**
+	module BCDomain: org.microservices.cba.basecommons.domain.*
+	module BCEnumeration: org.microservices.cba.basecommons.enumeration.*
+	module BCModel: org.microservices.cba.basecommons.models.*
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.**
+	module Beans: org.springframework.beans.**, org.springframework.stereotype.Component
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController
+	module JPA: javax.persistence.**
+	module Logger: org.apache.logging.log4j.Logger
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringRepository: org.springframework.stereotype.Repository
+
+	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Scheduled can-depend AmazonSQS
+	only Service can-access DAO
+	only Controller, Service can-access Service
+	only Main can-depend BCMultitenancy
+	only DAO, Service can-depend BCDAO
+	
+	#Can-only
+	Util can-depend-only Util, API, Logger
+	Domain can-access-only CbaCommonsModel, BCDomain, $java
+	ImplementDAO can-depend-only JPA, Hibernate, $java, SpringRepository, BCModel
+	Main can-access-only Controller, MainAnnotations, Logger, Apache, $java
+
+	#Cannot
+	Domain cannot-depend JPA
+	Controller cannot-access DAO
+
+	#Must
+	Main must-useannotation MainAnnotations
+	ImplementDAO must-depend SpringRepository
+	Service must-useannotation ServiceAnnotation

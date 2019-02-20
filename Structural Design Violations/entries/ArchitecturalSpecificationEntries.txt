@@ -1,0 +1,41 @@
+cba-entries: http://localhost:8000; /home/microservices/cba-entries/; Java
+	module Util: org.microservices.cba.entries.utils.*
+	module Controller: org.microservices.cba.entries.controller.*
+	module DAO: org.microservices.cba.entries.dao.*
+	module ImplementDAO: org.microservices.cba.entries.dao.[a-zA-Z]*DaoImpl
+	module Main: org.microservices.cba.entries.EntriesApplication
+	module Model: org.microservices.cba.entries.model.**,
+		org.microservices.cba.entries.email.model.**, 
+		org.microservices.cba.entries.models.**
+	module Service: org.microservices.cba.entries.service.*
+	module ServiceImplement: org.microservices.cba.entries.service.*[a-zA-Z]*ServiceImpl
+	module Serializer: org.microservices.cba.entries.serializer.*
+	
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.**	
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController
+	module Hibernate: org.hibernate.**
+	module JPA: javax.persistence.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,
+		org.springframework.boot.SpringApplication, $java
+	module Serializable: java.io.Serializable
+	module ServiceAnnotation: org.springframework.stereotype.Service	
+	module SpringRepository: org.springframework.stereotype.Repository
+	
+	only Controller can-useannotation CtlrAnnotations
+	only Controller, Service can-access Service
+	only Service can-access DAO
+	only Main can-depend BCMultitenancy
+
+	Util can-depend-only Util, $java
+	ImplementDAO can-depend-only JPA, Hibernate, SpringRepository, $java,
+
+	Main must-useannotation MainAnnotations
+	Controller must-useannotation CtlrAnnotations
+	Service must-useannotation ServiceAnnotation
+	Model, Serializer must-implement Serializable
+	ImplementDAO must-implement SpringRepository
+
+	Controller cannot-access DAO, CbaDAO

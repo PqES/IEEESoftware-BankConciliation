@@ -1,0 +1,25 @@
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,access,org.springframework.jndi.JndiObjectFactoryBean],[only Service can-depend Jndi]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,create,org.springframework.jndi.JndiObjectFactoryBean],[only Service can-depend Jndi]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,declare,org.springframework.jndi.JndiObjectFactoryBean],[only Service can-depend Jndi]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,useannotation,org.springframework.beans.factory.annotation.Value],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,create,org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory],[Main can-depend-only API, MainAnnotations, Apache]
+
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,access,org.springframework.jndi.JndiObjectFactoryBean],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,declare,org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,declare,org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,useannotation,org.springframework.context.annotation.Bean],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,create,org.springframework.jndi.JndiObjectFactoryBean],[Main can-depend-only API, MainAnnotations, Apache]
+
+[divergence],[org.microservices.plt.authorization.AuthorizationApplication,declare,org.springframework.jndi.JndiObjectFactoryBean],[Main can-depend-only API, MainAnnotations, Apache]
+
+
+

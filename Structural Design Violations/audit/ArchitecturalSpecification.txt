@@ -1,0 +1,36 @@
+audit: http://localhost:8085; /home/microservices/audit/; Java
+	module Controller: org.microservices.plt.audit.controller.*
+	module Domain: org.microservices.plt.audit.domain.*
+	module Main: org.microservices.plt.audit.AuditApplication
+	module Service: org.microservices.plt.audit.services.[a-zA-Z]*Impl
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping
+	module ExceptionCommons: br.com.org.plt.exception.SpcInternalException,					 			org.springframework.web.bind.annotation.RestController
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+                org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,
+		org.springframework.boot.SpringApplication
+	module Apache: org.apache.**
+	module ServiceAnnotation: org.springframework.stereotype.Service, org.springframework.beans.factory.annotation.Autowired	
+	module CBMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties	
+	module JPA: javax.persistence.**
+	module Beans: org.springframework.context.**, org.springframework.beans.**
+	module Jndi: org.springframework.jndi.**	
+	
+	#Constraints
+	#Only Can
+	only Controller, Service can-depend Service
+	only Controller can-useannotation CtlrAnnotations
+	only Service can-depend Jndi
+	only Service can-throw ExceptionCommons
+
+	#Can-only
+	Main can-access-only Controller, MainAnnotations, Logger, Apache, $java
+	Main can-useannotation-only MainAnnotations
+
+	#Cannot
+	Main cannot-depend CBMultitenancy
+	Domain cannot-depend JPA
+
+	#Must
+	Service must-useannotation ServiceAnnotation
+

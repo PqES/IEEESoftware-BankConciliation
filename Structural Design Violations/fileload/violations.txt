@@ -1,0 +1,19 @@
+[absence],[org.microservices.cba.fileload.models.LancamentoTmp,implement,Serializable],[Model must-implement Serializable]
+
+[absence],[org.microservices.cba.fileload.models.MovimentoFinanceiroAtributo,implement,Serializable],[Model must-implement Serializable]
+
+[absence],[org.microservices.cba.fileload.models.ContaSaldoTmp,implement,Serializable],[Model must-implement Serializable]
+
+[absence],[org.microservices.cba.fileload.models.ProcessamentoNode,implement,Serializable],[Model must-implement Serializable]
+
+[absence],[org.microservices.cba.fileload.models.MovimentoFinanceiro,implement,Serializable],[Model must-implement Serializable]
+
+[divergence],[org.microservices.cba.fileload.ProcessCamel,declare,javax.persistence.EntityManagerFactory],[only Model, DAO can-depend JPA, Beans]
+
+[divergence],[org.microservices.cba.fileload.ProcessCamel,access,javax.persistence.EntityManagerFactory],[only Model, DAO can-depend JPA, Beans]
+
+[divergence],[org.microservices.cba.fileload.ProcessCamel,access,org.microservices.cba.basecommons.daos.ContaBancariaNodeDao],[Main cannot-depend DAO, Model, BaseCommonsDAO]
+
+[divergence],[org.microservices.cba.fileload.ProcessCamel,declare,org.microservices.cba.basecommons.daos.ContaBancariaNodeDao],[Main cannot-depend DAO, Model, BaseCommonsDAO]
+
+[absence],[org.microservices.cba.fileload.models.BancoAgencia,implement,Serializable],[Model must-implement Serializable]

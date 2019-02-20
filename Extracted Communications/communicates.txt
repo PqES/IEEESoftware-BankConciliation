@@ -1,0 +1,204 @@
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReport/occurrenceReport communicates reports using /cliente/$clientId/motivoOcorrencia/relatorio
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReport/occurrenceReport communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/categories/categories communicates entries using /cliente/$clientId/categorias
+
+/home/microservices/node-middleware/src/bankConciliation/categories/categories communicates entries using /cliente/$clientId/categoria/$categoryId
+
+/home/microservices/node-middleware/src/bankConciliation/categories/categories communicates entries using /cliente/$clientId/categoria
+
+/home/microservices/node-middleware/srcbankConciliation/establishmentGroups/establishmentGroups communicates entries using /cliente/$clientId/gruposEstabelecimento
+
+/home/microservices/node-middleware/src/bankConciliation/operator/operatorUtil communicates authorization using /aplicacao/$aplicationId/cliente/$clientId/operadores
+
+/home/microservices/node-middleware/src/bankConciliation/operator/operator communicates authorization using /operador
+
+/home/microservices/node-middleware/src/bankConciliation/operator/operator communicates authorization using /aplicacao/$aplicationId/cliente/$clientId/usuario/$idUser/operador
+
+/home/microservices/node-middleware/src/bankConciliation/operator/operator communicates authorization using /aplicacao/$aplicationId/cliente/$clientId/funcionalidade/$functionalityId/operadores
+
+/home/microservices/node-middleware/src/bankConciliation/accessProfile/functionalitiesGroups/functionalitiesGroupsUtil communicates authorization using /cliente/$clienteId/aplicacao/$applicationId/gruposFuncionalidades
+
+/home/microservices/node-middleware/src/bankConciliation/accessProfile/accessProfile communicates authorization using /perfilAcesso
+
+/home/microservices/node-middleware/src/bankConciliation/accessProfile/accessProfile communicates authorization using /cliente/$clientId/aplicacao/$applicationId/perfil/$idProfile
+
+/home/microservices/node-middleware/src/bankConciliation/accessProfile/accessProfileUtil communicates authorization using /cliente/$clientId/perfisAcesso
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefaEmMassa
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefa
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/historicoTarefas
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefa/ocorrencia
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefa/$tarefaId
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefa/reabrir
+
+/home/microservices/node-middleware/src/bankConciliation/task/task communicates entries using /cliente/$clientId/tarefa/assumir
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/conciliacaoManual
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/lotes
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/conciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/lote/reabrir
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/justificativa
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates conciliation using /cliente/$clientId/lote/$allotmentId
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/manualConciliation/manualConciliation communicates entries using /cliente/$clientId/categorias
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationPlan/conciliationPlan communicates entries using /cliente/$clientId/planoConciliacao/$conciliationPlanId/find
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationPlan/conciliationPlan communicates entries using /cliente/$clientId/planoConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationPlan/conciliationPlanUtil communicates entries using /cliente/$clientId/planosConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/states/states communicates entries using /estados
+
+/home/microservices/node-middleware/src/bankConciliation/fileUpload/fileUpload communicates entries using /cliente/$clientId/layoutArquivo
+
+/home/microservices/node-middleware/src/bankConciliation/fileUpload/fileUpload communicates entries using /cliente/$clientId/layoutArquivo/logAuditoria
+
+/home/microservices/node-middleware/src/bankConciliation/financialMovements/financialMovements communicates reports using /cliente/$clientId/movimentacaoFinanceira
+
+/home/microservices/node-middleware/src/bankConciliation/financialMovements/financialMovements communicates reports using /cliente/$clientId/movimentacaoFinanceira/$idMovimentacaoFinanceira
+
+/home/microservices/node-middleware/src/bankConciliation/financialMovements/financialMovements communicates reports using /cliente/$clientId/movimentacaoFinanceira/$financialMovementId/historico
+
+/home/microservices/node-middleware/src/bankConciliation/financialMovements/financialMovements communicates reports using /cliente/$clientId/obeterDetalhesLotePorMovFinId/$idMovimentacao
+
+/home/microservices/node-middleware/src/bankConciliation/financialMovements/financialMovements communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/processedFiles/processedFiles communicates reports using /cliente/$clientId/arquivosProcessados
+
+/home/microservices/node-middleware/src/bankConciliation/processedFiles/processedFiles communicates reports using /cliente/$clientId/arquivoProcessado/$idProcessament
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates entries using /cliente/$clientId/tarefas
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/movimentacaoFinanceira/$idMovimentacaoFinanceira
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/contaLancamento/$idContaLancamento
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/movimentacaoFinanceira/$financialMovementId/historico
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/movimentacaoBancaria/$idBankStat/historico
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/obeterDetalhesLotePorMovFinId/$idMovimentacao
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates reports using /cliente/$clientId/arquivoProcessado/$idProcessament
+
+/home/microservices/node-middleware/src/bankConciliation/assignment/assignment communicates entries using /cliente/$clientId/tarefaTipoVinculo/$tarefaId
+
+/home/microservices/node-middleware/src/bankConciliation/home/functionalities/functionalities communicates authorization using /cliente/$clientId/perfil/$profileId/aplicacao/$applicationId/gruposFuncionalidades
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/lancamentos
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/saldoInicial
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/movimentacaoBancaria/$idMovimentacaoBancaria
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/movimentacaoBancaria/$idMovimentacaoBancaria
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/movimentacaoBancaria/$idBankStat/historico
+
+/home/microservices/node-middleware/src/bankConciliation/bankStatement/bankStatement communicates reports using /cliente/$clientId/obeterDetalhesLotePorMovBanId/$idMovimentacao
+
+/home/microservices/node-middleware/src/bankConciliation/establishment/establishment communicates entries using /cliente/$clientId/estabelecimento/$establishmentId/find
+
+/home/microservices/node-middleware/src/bankConciliation/establishment/establishment communicates entries using /cliente/$clientId/estabelecimento
+
+/home/microservices/node-middleware/src/bankConciliation/establishment/establishment communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/establishment/establishmentUtil communicates entries using /cliente/$clientId/estabelecimentos
+
+/home/microservices/node-middleware/src/bankConciliation/establishment/establishmentUtil communicates entries using /cliente/$clientId/estabelecimentosDetalhes
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates summary using /cliente/$clientId/detalheConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates summary using /cliente/$clientId/detalheConciliacaoDownload
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates reports using /cliente/$clientId/movimentacaoFinanceira/$conciliationReportId/historico
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates reports using /cliente/$clientId/movimentacaoBancaria/$conciliationReportId/historico
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationReport/conciliationReport communicates entries using /cliente/$clientId/categorias
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReason/occurenceReasonUtil communicates entries using /cliente/$clientId/motivosOcorrencia
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReason/occurrenceReason communicates entries using /cliente/$clientId/motivosOcorrencia
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReason/occurrenceReason
+communicates entries using /cliente/$clientId/motivoOcorrencia/$occurrenceReasonId/find
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReason/occurrenceReason communicates entries using /cliente/$clientId/motivoOcorrencia
+
+/home/microservices/node-middleware/src/bankConciliation/occurrenceReason/occurrenceReason communicates entries using /cliente/$clientId/categorias
+
+/home/microservices/node-middleware/src/bankConciliation/bankAccounts/bankAccounts communicates entries using /cliente/$clientId/contaBancaria
+
+/home/microservices/node-middleware/src/bankConciliation/bankAccounts/bankAccounts communicates entries using /bancos
+
+/home/microservices/node-middleware/src/bankConciliation/bankAccounts/bankAccounts communicates entries using /cliente/$clientId/contaBancaria/$bankAccountId/find
+
+/home/microservices/node-middleware/src/bankConciliation/bankAccounts/bankAccountUtil communicates entries using /cliente/$clientId/contasBancarias
+
+/home/microservices/node-middleware/src/bankConciliation/client/client communicates authorization using /aplicacao/$applicationId/usuario/$userId/clientes
+
+/home/microservices/node-middleware/src/bankConciliation/client/client communicates authorization using /aplicacao/$aplicationId/cliente/$clientId/usuario/$idUser/operador
+
+/home/microservices/node-middleware/src/bankConciliation/client/client communicates authorization using /cliente/$idCliente/usuario/$idUsuario/aplicacoes
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/perfil/$profileId/usuario/$userId/gadgets
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/estatistica/resumoConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/estatistica/resumoFinanceiro
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/estatistica/resumoConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/gadget
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/gadgets
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/estatistica/saldoBancario
+
+/home/microservices/node-middleware/src/bankConciliation/dashboard/dashboard communicates dashboard using /cliente/$clientId/estatistica/tarefas
+
+/home/microservices/node-middleware/src/bankConciliation/auditLog/audits/audits communicates audit using /$clientId/cliente/$auditId/auditoria
+
+/home/microservices/node-middleware/src/bankConciliation/auditLog/audits/audits communicates audit using /auditorias
+
+/home/microservices/node-middleware/src/bankConciliation/auditLog/entities/entities communicates entries using /entidades
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationSummary/conciliationSummary communicates reports using /cliente/$clientId/resumoConciliacao
+
+/home/microservices/node-middleware/src/bankConciliation/conciliationSummary/conciliationSummary communicates entries using /cliente/$clientId/atributos
+
+/home/microservices/node-middleware/src/bankConciliation/user/updateAccount/updateAccount communicates authentication using /alteraCadastro
+
+/home/microservices/node-middleware/src/bankConciliation/user/loginEmulado/loginEmulado communicates authentication using /loginEmulado
+
+/home/microservices/node-middleware/src/bankConciliation/user/login/login communicates authentication using /cliente/$idCliente/usuario/$idUsuario/aplicacao/$idAplicacao/perfil/$idPerfil/lang/$lang/trocaAplicacao
+
+/home/microservices/node-middleware/src/bankConciliation/user/changeApplication/changeApplication communicates authentication using /loginTrocaAplicacao
+
+/home/microservices/node-middleware/src/bankConciliation/attributesSet/attributesSet communicates entries using /cliente/$clientId/conjuntoAtributos
+
+/home/microservices/node-middleware/src/bankConciliation/attributesSet/attributesSet communicates entries using /cliente/$clientId/tipoAtributos
+
+/home/microservices/node-middleware/src/bankConciliation/attributesSet/attributesSet communicates entries using /cliente/$clientId/conjuntoAtributos/$idAtributoCfg
+
+/home/microservices/node-middleware/src/bankConciliation/attributesSet/attributesSet communicates entries using /cliente/$clientId/salvarAtributo
+
+/home/microservices/node-middleware/src/bankConciliation/cities/cities communicates entries using /cidades/$uf

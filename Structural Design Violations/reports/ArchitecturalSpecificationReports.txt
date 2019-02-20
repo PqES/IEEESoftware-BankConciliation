@@ -1,0 +1,35 @@
+reports: http://localhost:8000/; /home/elena/Documents/CodigosEquals/DepExtractorsExtracted/cba-reports/; Java
+	module Controller: org.microservices.cba.reports.controller.*
+	module Main: org.microservices.cba.reports.ReportsApplication
+	module Serializer: org.microservices.cba.reports.serializer.*
+	module Service: org.microservices.cba.reports.service.*
+
+	module BCController: org.microservices.cba.basecommons.controller.BaseController
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController, CtlrAnnotations.**
+	module JSONSerializer: flexjson.JSONSerializer.*
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	
+	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-depend BCMultitenancy
+	only Main can-useannotation MainAnnotations
+
+	#Can-only
+
+	#Cannot
+	Service cannot-access Controller
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Controller must-useannotation CtlrAnnotations
+	Controller must-extend BCController
+	Service must-useannotation ServiceAnnotation
+	Serializer must-depend JSONSerializer
+	

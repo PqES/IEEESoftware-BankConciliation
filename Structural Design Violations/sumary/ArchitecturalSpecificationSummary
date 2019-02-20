@@ -1,0 +1,47 @@
+summary: http://localhost:8096/; /home/microservices/cba-summary/; Java
+	module BaseService: org.microservices.cba.summary.service.BaseService
+	module Controller: org.microservices.cba.summary.controller.*	
+	module DAO: org.microservices.cba.summary.dao.*
+	module DAOInterface: org.microservices.cba.summary.dao.[a-zA-Z]*Dao
+    	module ImplementDAO: org.microservices.cba.summary.dao.[a-zA-Z]*Impl
+	module Main: org.microservices.cba.summary.SummaryApplication
+	module Service: org.microservices.cba.summary.service.*
+	module ServiceSubClass: org.microservices.cba.summary.service.AtributoService, 				
+		org.microservices.cba.summary.service.ConciliacaoService, 
+		org.microservices.cba.summary.service.TreegridService
+	module Stream: org.microservices.cba.summary.stream.*
+	module Util: org.microservices.cba.summary.util.**
+	
+	module BCMultitenancy: org.microservices.cba.summary.multitenacy.
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController, CtlrAnnotations.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties, 
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication
+	module Repository: org.springframework.stereotype.Repository
+	module ServiceAnnotation: org.springframework.stereotype.Service, ServiceAnnotation.**
+  
+	#Only-can
+	only Service can-useannotation ServiceAnnotation
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-useannotation MainAnnotations
+	only Main can-depend BCMultitenancy
+
+	#Can-only
+	Util can-access-only Util, Java
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Service must-useannotation ServiceAnnotation
+	Controller must-useannotation CtlrAnnotations
+	ServiceSubClass must-extend BaseService	
+	ImplementDAO must-implement DAOInterface	
+	ImplementDAO must-useannotation Repository	
+	Controller must-access Stream
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+[absence],[org.microservices.cba.summary.service.BaseService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.summary.controller.BaseController,useannotation,ControllerAnnotations],[Controller must-useannotation ControllerAnnotations]
+
+
+

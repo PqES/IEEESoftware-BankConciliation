@@ -1,0 +1,34 @@
+authentication: http://localhost:8082/; /home/microservices/authentication/; Java
+	module Controller: org.microservices.plt.authentication.controller.**
+	module Domain: org.microservices.plt.authentication.domain.**
+	module Main: org.microservices.plt.authentication.AuthenticationApplication
+	module Service: org.microservices.plt.authentication.service.**	
+	module BaseCommons: org.microservices.cba.basecommons.**
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController, org.springframework.web.bind.annotation.RequestBody,
+		org.springframework.web.bind.annotation.PathVariable
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication
+	module MyBatis: org.microservices.plt.commons.mybatis.**
+	module PltDomain: br.com.org.plt.domain.**
+	module ServiceAnnotation: org.springframework.stereotype.Service
+
+	#Constraints	
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-useannotation MainAnnotations
+	only Service can-useannotation ServiceAnnotation
+	only Domain, Controller, Service can-depend PltDomain
+	only Service can-depend MyBatis
+
+	#Cannot
+	$system cannot-depend BaseCommons
+	Service cannot-access Controller
+
+	#Must
+	Controller must-access Service, Domain
+	Service must-useannotation ServiceAnnotation
+     	Main must-useannotation MainAnnotations
+

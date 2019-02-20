@@ -1,0 +1,12 @@
+[absence],[equals.gestaofinanceira.microservices.cba.reports.serializer.MovimentacaoFinanceiraSerializer,depend,JSONSerializer],[Serializer must-depend JSONSerializer]
+
+[absence],[equals.gestaofinanceira.microservices.cba.reports.serializer.MovimentacaoBancariaSerializer,depend,JSONSerializer],[Serializer must-depend JSONSerializer]
+
+[absence],[equals.gestaofinanceira.microservices.cba.reports.serializer.ArquivoProcessadoSerializer,depend,JSONSerializer],[Serializer must-depend JSONSerializer]
+
+[absence],[equals.gestaofinanceira.microservices.cba.reports.serializer.ContaLancamentoSerializer,depend,JSONSerializer],[Serializer must-depend JSONSerializer]
+
+[absence],[equals.gestaofinanceira.microservices.cba.reports.controller.DetalheConciliacaoSerializer,useannotation,RestController, RequestMapping, Autowired],[Controller must-useannotation CtlrAnnotations]
+
+[absence],[equals.gestaofinanceira.microservices.cba.reports.controller.DetalheConciliacaoSerializer,extend,BaseController],[Controller must-extend BCController]
+

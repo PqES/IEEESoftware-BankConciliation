@@ -1,0 +1,50 @@
+fileprocess: http://localhost:8076; /home/microservices/cba-file-process/; Java
+	module DAOInterface: org.microservices.cba.process.dao.[a-zA-Z]*Dao
+	module ImplementDAO: org.microservices.cba.process.dao.[a-zA-Z]*DaoImpl
+	module Main: org.microservices.cba.process.Application
+	module Model: org.microservices.cba.process.model.**
+	module Scheduling: org.microservices.cba.process.schedule.**
+	module Service: org.microservices.cba.process.service.**
+	module Util: org.microservices.cba.process.util.**
+	
+	module AmazonService: com.amazonaws.services.**
+	module BCDomain: org.microservices.cba.basecommons.domain.**
+	module BCUtil: org.microservices.cba.basecommons.utils.**
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties
+	module JPA: javax.persistence.**
+	module Logger: org.apache.logging.log4j.Logger
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ScdAnnotation: org.springframework.scheduling.annotation.EnableScheduling
+	module ScdFramework: org.springframework.scheduling.**
+	module Serializable: java.io.Serializable
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringBeans: org.springframework.stereotype.Component, org.springframework.beans.**
+	module SpringRepository: org.springframework.stereotype.Repository
+	module Transactional: javax.transaction.**
+
+	#Constraints
+	#Only-can
+	only Main can-useannotation MainAnnotations
+	only Scheduling can-access ScdFramework
+	only Main can-depend BCMultitenancy
+	only DAO, Model can-depend Transactional, JPA
+	only Service, Scheduling can-depend AmazonService
+
+
+	#Can-only
+	Util can-depend-only Util, BCUtil, $java, Logger
+
+
+	#Cannot
+	Service cannot-depend Controller
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Service must-useannotation ServiceAnnotation
+	ImplementDAO must-implement DAOInterface, SpringRepository
+	Model must-implement Serializable
+	Scheduling must-depend ScdFramework
+	Scheduling must-useannotation ScdAnnotation

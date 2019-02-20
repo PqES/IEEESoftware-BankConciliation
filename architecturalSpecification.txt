@@ -1,0 +1,501 @@
+node-middleware: http://localhost:8099; /home/microservices/node-middleware/; Js
+	module AccessProfile: node-middleware.src.conciliacaoBancaria.accessProfile.**
+	module App: node-middleware.src.conciliacaoBancaria.app
+	module Assignment: node-middleware.src.conciliacaoBancaria.assignment.**
+	module AttributesSet: node-middleware.src.conciliacaoBancaria.attributesSet.**
+	module AuditLog: node-middleware.src.conciliacaoBancaria.auditLog.**
+	module BankAccounts: node-middleware.src.conciliacaoBancaria.bankAccounts.**
+	module BankStatement: node-middleware.src.conciliacaoBancaria.bankStatement.**
+	module Categories: node-middleware.src.conciliacaoBancaria.categories.**
+	module Cities: node-middleware.src.conciliacaoBancaria.cities.**
+	module Client: node-middleware.src.conciliacaoBancaria.client.**
+	module ConcilPlan: node-middleware.src.conciliacaoBancaria.conciliationPlan.**
+	module ConcilReport: node-middleware.src.conciliacaoBancaria.conciliationReport.**
+	module ConcilSummary: node-middleware.src.conciliacaoBancaria.conciliationSummary.**
+	module Config: node-middleware.src.config.**
+	module Dashboard: node-middleware.src.conciliacaoBancaria.dashboard.**
+	module Establishment: node-middleware.src.conciliacaoBancaria.establishment.**
+	module EstablishGroups: node-middleware.src.conciliacaoBancaria.establishmentGroups.**
+	module FileUpload: node-middleware.src.conciliacaoBancaria.fileUpload.**
+	module FinancMovements: node-middleware.src.conciliacaoBancaria.financialMovements.**
+	module Home: node-middleware.src.conciliacaoBancaria.home.**
+	module Index: node-middleware.src.conciliacaoBancaria.index
+	module ManualConcil: node-middleware.src.conciliacaoBancaria.manualConciliation.**
+	module Node_module: node-middleware.node_modules.**
+	module OccurrenceReason: node-middleware.src.conciliacaoBancaria.occurrenceReason.**
+	module OccurrenceReport: node-middleware.src.conciliacaoBancaria.occurrenceReport.**
+	module Operator: node-middleware.src.conciliacaoBancaria.operator.**
+	module ProcessedFiles: node-middleware.src.conciliacaoBancaria.processedFiles.**
+	module Routes: node-middleware.src.conciliacaoBancaria.routes
+	module States: node-middleware.src.conciliacaoBancaria.states.**
+	module Task: node-middleware.src.conciliacaoBancaria.task.**
+	module TransfData: node-middleware.src.transformationData.**
+	module Treegrid: node-middleware.src.conciliacaoBancaria.treegrid.**
+	module User: node-middleware.src.conciliacaoBancaria.user.**
+
+	#Constraints
+	#Only-can
+	only App can-access Routes
+
+	#Can-only
+	Index can-access-only App, Node_module, Config, TransfData
+	App can-access-only Routes, Node_module, Config, TransfData
+	Routes can-access-only ConciliacaoBancaria, Node_module, Config, TransfData
+	AccessProfile can-access-only AccessProfile, Node_module, Config, TransfData
+	Assignment can-access-only Assignment, Node_module, Config, TransfData
+	AttributesSet can-access-only AttributesSet, Node_module, Config, TransfData
+	AuditLog can-access-only AuditLog, Node_module, Config, TransfData
+	BankAccounts can-access-only BankAccounts, Node_module, Config, TransfData
+	BankStatement can-access-only BankStatement, Node_module, Config, TransfData
+	Categories can-access-only Categories, Node_module, Config, TransfData
+	Cities can-access-only Cities, Node_module, Config, TransfData
+	Client can-access-only Client, Node_module, Config, TransfData
+	ConcilPlan can-access-only ConcilPlan, Node_module, Config, TransfData
+	ConcilReport can-access-only ConcilReport, Node_module, Config, TransfData
+	ConcilSummary can-access-only ConcilSummary, Node_module, Config, TransfData
+	Dashboard can-access-only Dashboard, Node_module, Config, TransfData
+	Establishment can-access-only Establishment, Node_module, Config, TransfData
+	EstablishGroups can-access-only EstablishGroups, Node_module, Config, TransfData
+	FileUpload can-access-only FileUpload, Node_module, Config, TransfData
+	FinancMovements can-access-only FinancMovements, Node_module, Config, TransfData
+	Home can-access-only Home, Node_module, Config, TransfData
+	ManualConcil can-access-only ManualConcil, Node_module, Config, TransfData
+	OccurrenceReason can-access-only OccurrenceReason, Node_module, Config, TransfData
+	OccurrenceReport can-access-only OccurrenceReport, Node_module, Config, TransfData
+	Operator can-access-only Operator, Node_module, Config, TransfData
+	ProcessedFiles can-access-only ProcessedFiles, Node_module, Config, TransfData
+	States can-access-only States, Node_module, Config, TransfData
+	Task can-access-only Task, Node_module, Config, TransfData
+	Treegrid can-access-only Treegrid, Node_module, Config, TransfData
+	User can-access-only User, Node_module, Config, TransfData
+	TransfData can-access-only TransfData, Node_module, Config
+
+	#Must
+	Index must-access App
+	App must-access Routes
+
+	#Cannot
+	App cannot-depend Index
+	Routes cannot-depend Index, App
+
+	#Communications Constraints
+	Assignment, BankStatement, OccurrenceReport, ConciliationReport, FinancialMovements can-communicate-only Reports
+    	AuditLog can-communicate-only Audit 
+	ConciliationSummary can-communicate-only Summary 
+	only ConciliationSummary can-communicate Summary 
+	ConciliationSummary must-communicate Summary 
+	ManualConciliation can-communicate-only Conciliation 
+	ProcessedFiles cannot-communicate Audit, Authentication, Authorization, Conciliation, Entries, Reports, Dashboard, Summary, 			FileProcess, FileLoad 
+
+audit: http://localhost:8085; /home/microservices/audit/; Java
+	module Controller: org.microservices.plt.audit.controller.*
+	module Domain: org.microservices.plt.audit.domain.*
+	module Main: org.microservices.plt.audit.AuditApplication
+	module Service: org.microservices.plt.audit.services.[a-zA-Z]*Impl
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping
+	module ExceptionCommons: br.com.org.plt.exception.SpcInternalException,	
+		org.springframework.web.bind.annotation.RestController
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+                org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,
+		org.springframework.boot.SpringApplication
+	module Apache: org.apache.**
+	module ServiceAnnotation: org.springframework.stereotype.Service, org.springframework.beans.factory.annotation.Autowired	
+	module CBMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties	
+	module JPA: javax.persistence.**
+	module Beans: org.springframework.context.**, org.springframework.beans.**
+	module Jndi: org.springframework.jndi.**	
+	
+	#Constraints
+	#Only Can
+	only Controller, Service can-depend Service
+	only Controller can-useannotation CtlrAnnotations
+	only Service can-depend Jndi
+	only Service can-throw ExceptionCommons
+
+	#Can-only
+	Main can-access-only Controller, MainAnnotations, Logger, Apache, API
+	Main can-useannotation-only MainAnnotations
+
+	#Cannot
+	Main cannot-depend CBMultitenancy
+	Domain cannot-depend JPA
+
+	#Must
+	Service must-useannotation ServiceAnnotation
+
+authentication: http://localhost:8082/; /home/microservices/authentication/; Java
+	module Controller: org.microservices.plt.authentication.controller.**
+	module Domain: org.microservices.plt.authentication.domain.**
+	module Main: org.microservices.plt.authentication.AuthenticationApplication
+	module Service: org.microservices.plt.authentication.service.**	
+	module BaseCommons: org.microservices.cba.basecommons.**
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController, org.springframework.web.bind.annotation.RequestBody,
+		org.springframework.web.bind.annotation.PathVariable
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication
+	module MyBatis: org.microservices.plt.commons.mybatis.**
+	module PltDomain: br.com.org.plt.domain.**
+	module ServiceAnnotation: org.springframework.stereotype.Service
+
+	#Constraints	
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-useannotation MainAnnotations
+	only Service can-useannotation ServiceAnnotation
+	only Domain, Controller, Service can-depend PltDomain
+	only Service can-depend MyBatis
+
+	#Cannot
+	$system cannot-depend BaseCommons
+	Service cannot-access Controller
+
+	#Must
+	Controller must-access Service, Domain
+	Service must-useannotation ServiceAnnotation
+     	Main must-useannotation MainAnnotations
+
+
+authorization: http://localhost:8083; /home/microservices/authorization/; Java
+	module Controller: org.microservices.plt.authorization.controller.*
+	module Main: org.microservices.plt.authorization.*
+	module ServiceInterface: org.microservices.plt.authorization.services.[a-zA-Z]*Service
+	module ServiceImpl: org.microservices.plt.authorization.services.[a-zA-Z]*Impl
+
+	module Apache: org.apache.tomcat.**, org.apache.catalina.**, org.apache.logging.log4j.Logger
+	module BaseCommonsMultitenancy: org.microservices.cba.basecommons.multitenancy.**
+	module Beans: org.springframework.beans.**, org.springframework.boot.context.**, org.springframework.context.**
+	module ControllerAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController
+	module Jndi: org.springframework.jndi.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+
+	#Constraints
+	#Only-can
+	only Controller, Service can-depend Service
+	only Controller can-useannotation ControllerAnnotations
+	only Service can-depend Jndi
+	only Main can-depend MainAnnotations
+	
+	#Can-only
+	Main can-depend-only API, MainAnnotations, Apache
+
+	#Cannot
+	Controller cannot-access Main
+	$system cannot-depend BaseCommonsMultitenancy
+	Service cannot-access Controller
+
+	#Must
+	ServiceImpl must-useannotation ServiceAnnotation
+	ServiceImpl must-implement ServiceInterface
+	Controller must-useannotation ControllerAnnotations
+	
+conciliation: http://localhost:8093; /home/microservices/cba-conciliation/; Java
+	module Controller: org.microservices.cba.conciliation.controller.*
+	module DAO: org.microservices.cba.conciliation.dao.*
+	module Domain: org.microservices.cba.conciliation.domain.*
+	module ImplementDAO: org.microservices.cba.conciliation.dao.[a-zA-Z]*DaoImpl
+	module Util: org.microservices.cba.conciliation.util.*
+	module Main: org.microservices.cba.conciliation.ConciliationApplication
+	module Service: org.microservices.cba.conciliation.service.**
+	module Scheduled: org.microservices.cba.conciliation.scheduled.**
+
+	module AmazonSQS: com.amazonaws.services.sqs.AmazonSQS	
+	module BCDAO: org.microservices.cba.basecommons.daos.**
+	module BCDomain: org.microservices.cba.basecommons.domain.*
+	module BCModel: org.microservices.cba.basecommons.models.*
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.**
+	module Beans: org.springframework.beans.**, org.springframework.stereotype.Component
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping,
+		org.springframework.web.bind.annotation.RestController
+	module JPA: javax.persistence.**
+	module Logger: org.apache.logging.log4j.Logger
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringRepository: org.springframework.stereotype.Repository
+
+	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Scheduled can-depend AmazonSQS
+	only Service can-access DAO
+	only Controller, Service can-access Service
+	only Main can-depend BCMultitenancy
+	only DAO, Service can-depend BCDAO
+	
+	#Can-only
+	Util can-depend-only Util, API, Logger
+	Domain can-access-only CbaCommonsModel, BCDomain, API
+	ImplementDAO can-depend-only JPA, Hibernate, API, SpringRepository, BCModel
+	Main can-access-only Controller, MainAnnotations, Logger,  API
+
+	#Cannot
+	Domain cannot-depend JPA
+	Controller cannot-access DAO
+
+	#Must
+	Main must-useannotation MainAnnotations
+	ImplementDAO must-depend SpringRepository
+	Service must-useannotation ServiceAnnotation
+
+	
+dashboard: http://localhost:8095/; /home/microservices/cba-dashboard/; Java
+	module Controller: org.microservices.cba.dashboard.controller.*
+	module DAO: org.microservices.cba.dashboard.dao.**
+	module DAOInterface: 	org.microservices.cba.dashboard.dao.[a-zA-Z]*Dao
+	module Service: org.microservices.cba.dashboard.service.*
+
+	module BCController: 	org.microservices.cba.basecommons.controller.**
+	module BCModel: 	org.microservices.cba.basecommons.models.**
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController
+	module Hibernate: org.hibernate.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties, 
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication
+
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringRepository: org.springframework.stereotype.Repository
+
+  	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Controller can-depend BCController
+	only Main can-depend Multitenancy
+	only Service, DAO can-access DAO
+
+	#Can-only
+	ImplementDAO can-depend-only JPA, Hibernate, API, SpringRepository, BCModel
+
+  	#Cannot
+	Controller cannot-access DAO
+	Service cannot-depend Controller
+  
+	#Must
+	Main must-useannotation MainAnnotations
+	Controller must-access Service
+	ImplementDAO must-implement DAOInterface
+	ImplementDAO must-depend SpringRepository
+	Service must-useannotation ServiceAnnotation
+
+cba-entries: http://localhost:8000; /home/microservices/cba-entries/; Java
+	module Util: org.microservices.cba.entries.utils.*
+	module Controller: org.microservices.cba.entries.controller.*
+	module DAO: org.microservices.cba.entries.dao.*
+	module ImplementDAO: org.microservices.cba.entries.dao.[a-zA-Z]*DaoImpl
+	module Main: org.microservices.cba.entries.EntriesApplication
+	module Model: org.microservices.cba.entries.model.**,
+		org.microservices.cba.entries.email.model.**, 
+		org.microservices.cba.entries.models.**
+	module Service: org.microservices.cba.entries.service.*
+	module ServiceImplement: org.microservices.cba.entries.service.*[a-zA-Z]*ServiceImpl
+	module Serializer: org.microservices.cba.entries.serializer.*
+	
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.**	
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController
+	module Hibernate: org.hibernate.**
+	module JPA: javax.persistence.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,
+		org.springframework.boot.SpringApplication
+	module Serializable: java.io.Serializable
+	module ServiceAnnotation: org.springframework.stereotype.Service	
+	module SpringRepository: org.springframework.stereotype.Repository
+	
+	only Controller can-useannotation CtlrAnnotations
+	only Controller, Service can-access Service
+	only Service can-access DAO
+	only Main can-depend BCMultitenancy
+
+	Util can-depend-only Util, API
+	ImplementDAO can-depend-only JPA, Hibernate, SpringRepository, API,
+
+	Main must-useannotation MainAnnotations
+	Controller must-useannotation CtlrAnnotations
+	Service must-useannotation ServiceAnnotation
+	Model, Serializer must-implement Serializable
+	ImplementDAO must-implement SpringRepository
+
+	Controller cannot-access DAO, CbaDAO
+	
+fileload: http://localhost:8000/; /home/microservices/cba-file-load/; Java
+	module DAO: org.microservices.cba.fileload.daos.*
+	module DAOInterface: org.microservices.cba.fileload.daos.[a-zA-Z]*Dao
+	module ImplementDAO: org.microservices.cba.fileload.daos.[a-zA-Z]*DaoImpl
+	module Main: org.microservices.cba.fileload.*
+	module Model: org.microservices.cba.fileload.models.**
+	module Service: org.microservices.cba.fileload.services.*
+
+	module BaseCommonsDAO: org.microservices.cba.basecommons.daos.**
+	module BaseCommonsModel: org.microservices.cba.basecommons.models.*
+	module BaseCommonsMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties
+	module Beans: javax.validation.**
+	module DataSource: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+	module Hibernate: org.hibernate.**
+	module JPA: javax.persistence.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties, 
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module Serializable: java.io.Serializable
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringRepository: org.springframework.stereotype.Repository
+
+  	#Constraints
+	#Only-can 
+	only Model, DAO can-depend JPA, Beans
+	only Main can-useannotation MainAnnotations, DataSource
+	only Main can-depend BaseCommonsMultitenancy
+	only Service can-useannotation ServiceAnnotation
+
+	#Can-only
+	ImplementDAO can-depend-only JPA, Hibernate, API, SpringRepository, BaseCommonsModel
+	
+	#Cannot
+	Main cannot-depend DAO, Model, BaseCommonsDAO
+	Service cannot-access Main
+
+	#Must
+	ImplementDAO must-implement DAOInterface
+	ImplementDAO must-depend SpringRepository
+	Model must-implement Serializable
+	Service must-useannotation ServiceAnnotation
+	
+fileprocess: http://localhost:8076; /home/microservices/cba-file-process/; Java
+	module DAOInterface: org.microservices.cba.process.dao.[a-zA-Z]*Dao
+	module ImplementDAO: org.microservices.cba.process.dao.[a-zA-Z]*DaoImpl
+	module Main: org.microservices.cba.process.Application
+	module Model: org.microservices.cba.process.model.**
+	module Scheduling: org.microservices.cba.process.schedule.**
+	module Service: org.microservices.cba.process.service.**
+	module Util: org.microservices.cba.process.util.**
+	
+	module AmazonService: com.amazonaws.services.**
+	module BCDomain: org.microservices.cba.basecommons.domain.**
+	module BCUtil: org.microservices.cba.basecommons.utils.**
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties
+	module JPA: javax.persistence.**
+	module Logger: org.apache.logging.log4j.Logger
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication,
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ScdAnnotation: org.springframework.scheduling.annotation.EnableScheduling
+	module ScdFramework: org.springframework.scheduling.**
+	module Serializable: java.io.Serializable
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	module SpringBeans: org.springframework.stereotype.Component, org.springframework.beans.**
+	module SpringRepository: org.springframework.stereotype.Repository
+	module Transactional: javax.transaction.**
+
+	#Constraints
+	#Only-can
+	only Main can-useannotation MainAnnotations
+	only Scheduling can-access ScdFramework
+	only Main can-depend BCMultitenancy
+	only DAO, Model can-depend Transactional, JPA
+	only Service, Scheduling can-depend AmazonService
+
+	#Can-only
+	Util can-depend-only Util, BCUtil, API, Logger
+
+	#Cannot
+	Service cannot-depend Controller
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Service must-useannotation ServiceAnnotation
+	ImplementDAO must-implement DAOInterface, SpringRepository
+	Model must-implement Serializable
+	Scheduling must-depend ScdFramework
+	Scheduling must-useannotation ScdAnnotation	
+	
+reports: http://localhost:8094/; /home/microservices/cba-reports/; Java
+	module Controller: org.microservices.cba.reports.controller.*
+	module Main: org.microservices.cba.reports.ReportsApplication
+	module Serializer: org.microservices.cba.reports.serializer.*
+	module Service: org.microservices.cba.reports.service.*
+
+	module BCController: org.microservices.cba.basecommons.controller.BaseController
+	module BCMultitenancy: org.microservices.cba.basecommons.multitenancy.properties.MultitenancyProperties
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController, CtlrAnnotations.**
+	module JSONSerializer: flexjson.JSONSerializer.*
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties,
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient, 
+		org.springframework.boot.SpringApplication
+	module ServiceAnnotation: org.springframework.stereotype.Service
+	
+	#Constraints
+	#Only-can
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-depend BCMultitenancy
+	only Main can-useannotation MainAnnotations
+
+	#Can-only
+
+	#Cannot
+	Service cannot-access Controller
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Controller must-useannotation CtlrAnnotations
+	Controller must-extend BCController
+	Service must-useannotation ServiceAnnotation
+	Serializer must-depend JSONSerializer
+
+summary: http://localhost:8096/; /home/microservices/cba-summary/; Java
+	module BaseService: org.microservices.cba.summary.service.BaseService
+	module Controller: org.microservices.cba.summary.controller.*	
+	module DAO: org.microservices.cba.summary.dao.*
+	module DAOInterface: org.microservices.cba.summary.dao.[a-zA-Z]*Dao
+    	module ImplementDAO: org.microservices.cba.summary.dao.[a-zA-Z]*Impl
+	module Main: org.microservices.cba.summary.SummaryApplication
+	module Service: org.microservices.cba.summary.service.*
+	module ServiceSubClass: org.microservices.cba.summary.service.AtributoService, 				
+		org.microservices.cba.summary.service.ConciliacaoService, 
+		org.microservices.cba.summary.service.TreegridService
+	module Stream: org.microservices.cba.summary.stream.*
+	module Util: org.microservices.cba.summary.util.**
+	
+	module BCMultitenancy: org.microservices.cba.summary.multitenacy.
+	module CtlrAnnotations: org.springframework.web.bind.annotation.RequestMapping, 
+		org.springframework.web.bind.annotation.RestController, CtlrAnnotations.**
+	module MainAnnotations: org.springframework.boot.context.properties.EnableConfigurationProperties, 
+		org.springframework.boot.autoconfigure.SpringBootApplication, 
+		org.springframework.cloud.client.discovery.EnableDiscoveryClient,  
+		org.springframework.boot.SpringApplication
+	module Repository: org.springframework.stereotype.Repository
+	module ServiceAnnotation: org.springframework.stereotype.Service, ServiceAnnotation.**
+  
+	#Only-can
+	only Service can-useannotation ServiceAnnotation
+	only Controller can-useannotation CtlrAnnotations
+	only Main can-useannotation MainAnnotations
+	only Main can-depend BCMultitenancy
+
+	#Can-only
+	Util can-access-only Util, Java
+
+	#Must
+	Main must-useannotation MainAnnotations
+	Service must-useannotation ServiceAnnotation
+	Controller must-useannotation CtlrAnnotations
+	ServiceSubClass must-extend BaseService	
+	ImplementDAO must-implement DAOInterface	
+	ImplementDAO must-useannotation Repository	
+	Controller must-access Stream

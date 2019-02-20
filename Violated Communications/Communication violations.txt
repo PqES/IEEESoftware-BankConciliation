@@ -1,0 +1,46 @@
+Communication Violates: 
+
+	ManualConciliation
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/manualConciliation/manualConciliation.js(ManualConciliation) CAN_COMMUNICATE_ONLY conciliation (/home/microservices/node-middleware/src/conciliacaoBancaria/manualConciliation/manualConciliation.js (ManualConciliation) communicate entries using /cliente/$clientId/categorias)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/manualConciliation/manualConciliation.js(ManualConciliation) CAN_COMMUNICATE_ONLY conciliation (/home/microservices/node-middleware/src/conciliacaoBancaria/manualConciliation/manualConciliation.js (ManualConciliation) communicate entries using /cliente/$clientId/atributos)
+
+	Assignment
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/assignment/assignment.js(Assignment) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/assignment/assignment.js (Assignment) communicate entries using /cliente/$clientId/tarefaTipoVinculo/$tarefaId)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/assignment/assignment.js(Assignment) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/assignment/assignment.js (Assignment) communicate entries using /cliente/$clientId/tarefas)
+
+	ConciliationReport
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js(ConciliationReport) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate entries using /cliente/$clientId/atributos)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js(ConciliationReport) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate summary using /cliente/$clientId/detalheConciliacaoDownload)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js(ConciliationReport) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate summary using /cliente/$clientId/detalheConciliacao)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js(ConciliationReport) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate entries using /cliente/$clientId/categorias)
+
+	AuditLog
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/auditLog/entities/entities.js(AuditLog) CAN_COMMUNICATE_ONLY audit (/home/microservices/node-middleware/src/conciliacaoBancaria/auditLog/entities/entities.js (AuditLog) communicate entries using /entidades)
+
+	FinancialMovements
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/financialMovements/financialMovements.js(FinancialMovements) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/financialMovements/financialMovements.js (FinancialMovements) communicate entries using /cliente/$clientId/atributos)
+
+	ProcessedFiles
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/processedFiles/processedFiles.js(ProcessedFiles) CANNOT_COMMUNICATE reports (/home/microservices/node-middleware/src/conciliacaoBancaria/processedFiles/processedFiles.js (ProcessedFiles) communicate reports using /cliente/$clientId/arquivosProcessados)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/processedFiles/processedFiles.js(ProcessedFiles) CANNOT_COMMUNICATE reports (/home/microservices/node-middleware/src/conciliacaoBancaria/processedFiles/processedFiles.js (ProcessedFiles) communicate reports using /cliente/$clientId/arquivoProcessado/$idProcessament)
+
+	ConciliationSummary
+	Abscence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js(ConciliationSummary) MUST_COMMUNICATE summary
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js(ConciliationSummary) CAN_COMMUNICATE_ONLY summary (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js (ConciliationSummary) communicate entries using /cliente/$clientId/atributos)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js(ConciliationSummary) CAN_COMMUNICATE_ONLY summary (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js (ConciliationSummary) communicate reports using /cliente/$clientId/resumoConciliacao)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js(ConciliationSummary) ONLY_CAN_COMMUNICATE summary (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate summary using /cliente/$clientId/detalheConciliacaoDownload)
+
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationSummary/conciliationSummary.js(ConciliationSummary) ONLY_CAN_COMMUNICATE summary (/home/microservices/node-middleware/src/conciliacaoBancaria/conciliationReport/conciliationReport.js (ConciliationReport) communicate summary using /cliente/$clientId/detalheConciliacao)
+
+	OccurrenceReport
+	Divergence: [/home/microservices/node-middleware/src/conciliacaoBancaria/occurrenceReport/occurrenceReport.js(OccurrenceReport) CAN_COMMUNICATE_ONLY reports (/home/microservices/node-middleware/src/conciliacaoBancaria/occurrenceReport/occurrenceReport.js (OccurrenceReport) communicate entries using /cliente/$clientId/atributos)
+

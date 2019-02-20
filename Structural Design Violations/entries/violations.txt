@@ -1,0 +1,66 @@
+[absence],[org.microservices.cba.entries.serializer.EstabelecimentoAtributosSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.email.model.EmailDestinatario,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.serializer.AtributoSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.email.model.HtmlText,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.service.TarefaService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.serializer.EstabelecimentoSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.service.AtributoValorService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.email.model.EmailTemplate,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[divergence],[org.microservices.cba.entries.service.ContaBancariaService,declare,org.microservices.cba.basecommons.multitenancy.dao.MultitenancyDao],[only Main can-depend BCMultitenancy]
+
+[divergence],[org.microservices.cba.entries.service.ContaBancariaService,access,org.microservices.cba.basecommons.multitenancy.dao.MultitenancyDao],[only Main can-depend BCMultitenancy]
+
+[divergence],[org.microservices.cba.entries.service.ContaBancariaService,declare,org.microservices.cba.basecommons.multitenancy.],[only Main can-depend BCMultitenancy]
+
+[absence],[org.microservices.cba.entries.service.ContaBancariaService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.serializer.AtributoCfgSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.serializer.TarefaVinculoSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[divergence],[org.microservices.cba.entries.controller.EntidadeController,access,org.microservices.cba.entries.dao.EntidadeDao],[only Service can-access DAO]
+
+[divergence],[org.microservices.cba.entries.controller.EntidadeController,access,org.microservices.cba.entries.dao.EntidadeDao],[Controller cannot-access DAO, CbaDAO]
+
+[absence],[org.microservices.cba.entries.service.EstabelecimentoService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[divergence],[org.microservices.cba.entries.controller.CidadeController,access,org.microservices.cba.entries.dao.CidadeDao],[only Service can-access DAO]
+
+[divergence],[org.microservices.cba.entries.controller.CidadeController,access,org.microservices.cba.entries.dao.CidadeDao],[Controller cannot-access DAO, CbaDAO]
+
+[absence],[org.microservices.cba.entries.serializer.AtributoConfigSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[divergence],[org.microservices.cba.entries.utils.SessionUtil,declare,org.hibernate.SessionFactory],[Util can-depend-only Util, $java]
+
+[divergence],[org.microservices.cba.entries.utils.SessionUtil,access,org.hibernate.Session],[Util can-depend-only Util, $java]
+
+[absence],[org.microservices.cba.entries.controller.MotivoOcorrenciaController,useannotation,CtlrAnnotations],[Controller must-useannotation CtlrAnnotations]
+
+[absence],[org.microservices.cba.entries.service.MotivoOcorrenciaService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.service.CategoriaService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.model.LayoutArquivo,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.service.AtributoConfigService,useannotation,ServiceAnnotation],[Service must-useannotation ServiceAnnotation]
+
+[absence],[org.microservices.cba.entries.email.model.Email,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[divergence],[org.microservices.cba.entries.controller.UploadArquivoController,access,org.microservices.cba.entries.dao.LayoutArquivoDao],[only Service can-access DAO]
+
+[divergence],[org.microservices.cba.entries.controller.UploadArquivoController,access,org.microservices.cba.entries.dao.LayoutArquivoDao],[Controller cannot-access DAO, CbaDAO]
+
+[absence],[org.microservices.cba.entries.models.Entidade,implement,Serializable],[Model, Serializer must-implement Serializable]
+
+[absence],[org.microservices.cba.entries.controller.BancoController,useannotation,CtlrAnnotations],[Controller must-useannotation CtlrAnnotations]
+
+[absence],[org.microservices.cba.entries.serializer.TarefaSerializer,implement,Serializable],[Model, Serializer must-implement Serializable]
+

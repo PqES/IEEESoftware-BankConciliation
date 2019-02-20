@@ -1,0 +1,48 @@
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.daos.TarefaDao],[only DAO, Service can-depend BCDAO]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.daos.TarefaDao],[only DAO, Service can-depend BCDAO]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.models.Tarefa],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.enumeration.LogTransacaoEnum],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.daos.TarefaDao],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.Cliente],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.models.MovimentacaoFinanceira],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.models.MovimentacaoBancaria],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.enumeration.SituacaoTarefaEnum],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.Tarefa],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.models.TarefaHistorico],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.TarefaHistorico],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.enumeration.TarefaTipoVinculoEnum],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.ConciliacaoLote],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,useannotation,org.springframework.stereotype.Component],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,declare,org.microservices.cba.basecommons.models.ConciliacaoLote],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.daos.TarefaDao],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.ContaLancamento],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,useannotation,org.springframework.beans.factory.annotation.Autowired],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,create,org.microservices.cba.basecommons.models.TarefaHistorico],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.MovimentacaoFinanceira],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.ConciliacacaoStatusUtil,access,org.microservices.cba.basecommons.models.MovimentacaoBancaria],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.WorkflowUtil,useannotation,org.springframework.beans.factory.annotation.Value],[Util can-depend-only Util, $java, Logger]
+
+[divergence],[org.microservices.cba.conciliation.util.WorkflowUtil,useannotation,org.springframework.stereotype.Component],[Util can-depend-only Util, $java, Logger]
+
