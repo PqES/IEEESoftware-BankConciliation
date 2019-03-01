@@ -1,5 +1,5 @@
 # IEEESoftware-BankConciliation
-This repository contains the complete data of the evaluation reported in (a submitted) IEEE Software paper entitled "A Multi-platform Architectural Conformance Solution for the Microservice Architecture" 
+This repository contains the complete data of the evaluation reported in (a submitted) IEEE Software paper entitled "Applying a Multi-plataform Architectural Conformance Solution in a Real-world Microservice-based System" 
 
 The Architectural Specification file presents the architectural specification in DCL+ of the evaluted application. In this file are defined each microservice definition with its communication constraints and structural design.  
 
