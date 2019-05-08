@@ -16,7 +16,6 @@ audit: http://localhost:8085; /home/microservices/audit/; Java
 	module Beans: org.springframework.context.**, org.springframework.beans.**
 	module Jndi: org.springframework.jndi.**	
 	
-	#Constraints
 	#Only Can
 	only Controller, Service can-depend Service
 	only Controller can-useannotation CtlrAnnotations
@@ -24,7 +23,7 @@ audit: http://localhost:8085; /home/microservices/audit/; Java
 	only Service can-throw ExceptionCommons
 
 	#Can-only
-	Main can-access-only Controller, MainAnnotations, Logger, Apache, $java
+	Main can-access-only Controller, MainAnnotations, Logger, Apache, $API
 	Main can-useannotation-only MainAnnotations
 
 	#Cannot
